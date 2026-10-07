@@ -1,0 +1,143 @@
+{
+  "employee": {
+    "name": "Namith K P",
+    "honorific": "",
+    "role": "Software Engineer",
+    "department": "Engineering & Innovation",
+    "company": "Arraycode",
+    "pronouns": "He/Him",
+    "avatar": "data/img/dp.jpg",
+    "tagline": "Building and shipping production web and mobile products.",
+    "bio": "Software Engineer focused on building and shipping production web and mobile products. I work across frontend, backend, APIs, cloud deployment and product engineering — from architecture and development to production support.",
+    "email": "namith.works@gmail.com",
+    "phone": "+91 75102 87909",
+    "phoneRaw": "+917510287909",
+    "whatsapp": "+917510287909",
+    "location": "Kerala, India",
+    "website": "https://namit.info",
+    "calendarUrl": "https://namit.info",
+    "github": "https://github.com/namitworks",
+    "gitlab": "https://gitlab.com/namitworks",
+    "linkedin": "https://linkedin.com/in/namithkp"
+  },
+  "company": {
+    "name": "Arraycode",
+    "tagline": "Product engineering, web, mobile and PWA",
+    "website": "https://www.arraycode.in",
+    "email": "hello@arraycode.in",
+    "logoMark": "data/img/arraycode-mark.png",
+    "logoWordmark": "data/img/arraycode-wordmark.png",
+    "logoWordmarkLight": "data/img/arraycode-wordmark-light.png",
+    "icon": "data/img/arraycode-icon.png"
+  },
+  "theme": {
+    "style": "split",
+    "mode": "light",
+    "primaryColor": "#0080ff",
+    "secondaryColor": "#4f46e5",
+    "accentColor": "#00d2ff"
+  },
+  "badges": [
+    {
+      "icon": "shield-check",
+      "text": "Verified Employee"
+    },
+    {
+      "icon": "layers",
+      "text": "Full-Stack"
+    },
+    {
+      "icon": "terminal",
+      "text": "Product Engineering"
+    },
+    {
+      "icon": "smartphone",
+      "text": "Web & Mobile"
+    },
+    {
+      "icon": "sparkles",
+      "text": "AI-Native"
+    }
+  ],
+  "quickActions": [
+    {
+      "id": "call",
+      "type": "tel",
+      "icon": "phone",
+      "title": "+91 75102 87909",
+      "subtitle": "Direct Call / SMS",
+      "url": "tel:+917510287909",
+      "copyValue": "+91 75102 87909"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "icon": "mail",
+      "title": "namith.works@gmail.com",
+      "subtitle": "Direct Email",
+      "url": "mailto:namith.works@gmail.com",
+      "copyValue": "namith.works@gmail.com"
+    },
+    {
+      "id": "whatsapp",
+      "type": "external",
+      "icon": "whatsapp",
+      "title": "Chat on WhatsApp",
+      "subtitle": "Instant message & updates",
+      "url": "https://wa.me/917510287909?text=Hello%20Namith,%20reaching%20out%20via%20your%20Arraycode%20visiting%20card."
+    },
+    {
+      "id": "website",
+      "type": "external",
+      "icon": "globe",
+      "title": "namit.info",
+      "subtitle": "Personal Portfolio",
+      "url": "https://namit.info"
+    },
+    {
+      "id": "linkedin",
+      "type": "external",
+      "icon": "linkedin",
+      "title": "Namith K P",
+      "subtitle": "LinkedIn Profile",
+      "url": "https://linkedin.com/in/namithkp"
+    },
+    {
+      "id": "location",
+      "type": "external",
+      "icon": "map-pin",
+      "title": "Kerala, India",
+      "subtitle": "Location",
+      "url": "https://maps.google.com/?q=Kerala,India"
+    }
+  ],
+  "socialLinks": [
+    {
+      "platform": "LinkedIn",
+      "icon": "linkedin",
+      "url": "https://linkedin.com/in/namithkp"
+    },
+    {
+      "platform": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/namitworks"
+    },
+    {
+      "platform": "GitLab",
+      "icon": "gitlab",
+      "url": "https://gitlab.com/namitworks"
+    },
+    {
+      "platform": "Website",
+      "icon": "globe",
+      "url": "https://namit.info"
+    }
+  ],
+  "services": [
+    "Full-Stack Engineering",
+    "Web & Mobile Apps",
+    "APIs & Microservices",
+    "Cloud & DevOps",
+    "AI-Native Solutions"
+  ]
+}

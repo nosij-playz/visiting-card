@@ -124,9 +124,16 @@ const ICONS = {
   github: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>`,
   twitter: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>`,
   instagram: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>`,
+  gitlab: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 13.29-1.84-5.67a.84.84 0 0 0-1.6 0l-1.84 5.67H7.28L5.44 7.62a.84.84 0 0 0-1.6 0L2 13.29c-.19.58.02 1.22.51 1.58l9.49 6.88 9.49-6.88c.49-.36.7-1 1-.51.58z"></path></svg>`,
   'shield-check': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path><path d="m9 12 2 2 4-4"></path></svg>`,
   terminal: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>`,
   zap: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`,
+  cpu: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>`,
+  sparkles: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></svg>`,
+  layers: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>`,
+  smartphone: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>`,
+  briefcase: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>`,
+  'user-check': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><polyline points="16 11 18 13 22 9"></polyline></svg>`,
   copy: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>`
 };
 
@@ -135,15 +142,37 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchCardData();
 });
 
+function getActiveTenant() {
+  const params = new URLSearchParams(window.location.search);
+  const qTenant = params.get('u') || params.get('user');
+  if (qTenant) return qTenant.toLowerCase();
+
+  const hostname = window.location.hostname.toLowerCase();
+  const hostParts = hostname.split('.');
+  if (hostParts.length > 1 && !['localhost', '127', 'www', 'arraycode', 'visiting-cards', 'onrender'].includes(hostParts[0])) {
+    return hostParts[0];
+  }
+
+  const pathParts = window.location.pathname.replace(/^\/+|\/+$/g, '').split('/');
+  if (pathParts[0] && !pathParts[0].includes('.')) {
+    return pathParts[0].toLowerCase();
+  }
+
+  return '';
+}
+
 async function fetchCardData() {
+  const tenant = getActiveTenant();
+  const endpoint = tenant ? `/api/employee?u=${encodeURIComponent(tenant)}` : 'data/info.json';
+
   try {
-    const res = await fetch('data/info.json', { cache: 'no-cache' });
+    const res = await fetch(endpoint, { cache: 'no-cache' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     activeData = data;
     renderVisitingCard(data);
   } catch (e) {
-    console.warn('Fetch data/info.json fallback active:', e);
+    console.warn(`Fetch ${endpoint} fallback active:`, e);
     activeData = FALLBACK_CONFIG;
     renderVisitingCard(FALLBACK_CONFIG);
   }
@@ -151,6 +180,15 @@ async function fetchCardData() {
 
 function renderVisitingCard(data) {
   const { employee, company, badges, quickActions, socialLinks, services } = data;
+
+  // Dynamically update page title & Open Graph tags for this employee
+  if (employee.name) {
+    document.title = `${employee.name} — Arraycode`;
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.content = `${employee.name} — ${employee.role || 'Arraycode'}`;
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc && employee.bio) ogDesc.content = employee.bio;
+  }
 
   // 1. Employee Name, Title, Org
   const nameEl = document.getElementById('emp-name');

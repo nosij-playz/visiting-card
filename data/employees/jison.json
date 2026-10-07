@@ -1,0 +1,140 @@
+{
+  "employee": {
+    "name": "Jison Joseph Sebastian",
+    "honorific": "",
+    "role": "AI/ML Engineer & Full Stack Developer",
+    "department": "AI Systems & Engineering",
+    "company": "Arraycode",
+    "pronouns": "He/Him",
+    "avatar": "data/img/dp.jpg",
+    "tagline": "Building scalable AI systems, agentic workflows & modern web platforms.",
+    "bio": "AI/ML and full-stack developer working with machine learning, computer vision, agentic AI, and backend systems.",
+    "email": "jison@arraycode.in",
+    "phone": "+91 98765 43211",
+    "phoneRaw": "+919876543211",
+    "whatsapp": "+919876543211",
+    "location": "Kannur, Kerala, India",
+    "website": "https://www.jisonjosephsebastian.work.gd/",
+    "calendarUrl": "https://www.arraycode.in/contact",
+    "github": "https://github.com/nosij-playz",
+    "linkedin": "https://linkedin.com/in/nosij-playz44",
+    "twitter": "https://x.com/Arraycode_in",
+    "instagram": "https://www.instagram.com/arraycode.in"
+  },
+  "company": {
+    "name": "Arraycode",
+    "tagline": "Product engineering, web, mobile and PWA",
+    "website": "https://www.arraycode.in",
+    "email": "hello@arraycode.in",
+    "logoMark": "data/img/arraycode-mark.png",
+    "logoWordmark": "data/img/arraycode-wordmark.png",
+    "logoWordmarkLight": "data/img/arraycode-wordmark-light.png",
+    "icon": "data/img/arraycode-icon.png"
+  },
+  "theme": {
+    "style": "split",
+    "mode": "light",
+    "primaryColor": "#0080ff",
+    "secondaryColor": "#4f46e5",
+    "accentColor": "#00d2ff"
+  },
+  "badges": [
+    {
+      "icon": "shield-check",
+      "text": "Verified Employee"
+    },
+    {
+      "icon": "sparkles",
+      "text": "AI/ML Engineer"
+    },
+    {
+      "icon": "cpu",
+      "text": "Agentic AI & Vision"
+    },
+    {
+      "icon": "layers",
+      "text": "Full-Stack Dev"
+    }
+  ],
+  "quickActions": [
+    {
+      "id": "website",
+      "type": "external",
+      "icon": "globe",
+      "title": "jisonjosephsebastian.work.gd",
+      "subtitle": "Personal Portfolio",
+      "url": "https://www.jisonjosephsebastian.work.gd/"
+    },
+    {
+      "id": "linkedin",
+      "type": "external",
+      "icon": "linkedin",
+      "title": "nosij-playz44",
+      "subtitle": "LinkedIn Profile",
+      "url": "https://linkedin.com/in/nosij-playz44"
+    },
+    {
+      "id": "github",
+      "type": "external",
+      "icon": "github",
+      "title": "nosij-playz",
+      "subtitle": "GitHub Profile",
+      "url": "https://github.com/nosij-playz"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "icon": "mail",
+      "title": "jison@arraycode.in",
+      "subtitle": "Work Email",
+      "url": "mailto:jison@arraycode.in",
+      "copyValue": "jison@arraycode.in"
+    },
+    {
+      "id": "call",
+      "type": "tel",
+      "icon": "phone",
+      "title": "+91 98765 43211",
+      "subtitle": "Direct Call / SMS",
+      "url": "tel:+919876543211",
+      "copyValue": "+91 98765 43211"
+    },
+    {
+      "id": "location",
+      "type": "external",
+      "icon": "map-pin",
+      "title": "Kannur, Kerala, India",
+      "subtitle": "Location",
+      "url": "https://maps.google.com/?q=Kannur,Kerala,India"
+    }
+  ],
+  "socialLinks": [
+    {
+      "platform": "LinkedIn",
+      "icon": "linkedin",
+      "url": "https://linkedin.com/in/nosij-playz44"
+    },
+    {
+      "platform": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/nosij-playz"
+    },
+    {
+      "platform": "Website",
+      "icon": "globe",
+      "url": "https://www.jisonjosephsebastian.work.gd/"
+    },
+    {
+      "platform": "Twitter / X",
+      "icon": "twitter",
+      "url": "https://x.com/Arraycode_in"
+    }
+  ],
+  "services": [
+    "Machine Learning & AI",
+    "Agentic AI Workflows",
+    "Computer Vision",
+    "Full-Stack Web Development",
+    "Distributed Backend Systems"
+  ]
+}

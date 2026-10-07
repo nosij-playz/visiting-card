@@ -1,0 +1,136 @@
+{
+  "employee": {
+    "name": "Vishnu C",
+    "honorific": "",
+    "role": "Customer Manager",
+    "department": "Customer Management & Relations",
+    "company": "Arraycode",
+    "pronouns": "He/Him",
+    "avatar": "data/img/dp.jpg",
+    "tagline": "Customer success, client relationships & growth partnerships.",
+    "bio": "Customer Manager at Arraycode leading client communications, partnership management, project discovery, and seamless customer success journeys.",
+    "email": "vishnu03c@gmail.com",
+    "phone": "+91 95678 13815",
+    "phoneRaw": "+919567813815",
+    "whatsapp": "+919567813815",
+    "location": "Kozhikode, Kerala, India",
+    "website": "https://www.arraycode.in",
+    "calendarUrl": "https://www.arraycode.in/contact",
+    "github": "https://github.com/arraycode",
+    "linkedin": "https://www.linkedin.com/in/vishnu-c-1aab09256",
+    "twitter": "https://x.com/Arraycode_in",
+    "instagram": "https://www.instagram.com/arraycode.in"
+  },
+  "company": {
+    "name": "Arraycode",
+    "tagline": "Product engineering, web, mobile and PWA",
+    "website": "https://www.arraycode.in",
+    "email": "hello@arraycode.in",
+    "logoMark": "data/img/arraycode-mark.png",
+    "logoWordmark": "data/img/arraycode-wordmark.png",
+    "logoWordmarkLight": "data/img/arraycode-wordmark-light.png",
+    "icon": "data/img/arraycode-icon.png"
+  },
+  "theme": {
+    "style": "split",
+    "mode": "light",
+    "primaryColor": "#0080ff",
+    "secondaryColor": "#4f46e5",
+    "accentColor": "#00d2ff"
+  },
+  "badges": [
+    {
+      "icon": "shield-check",
+      "text": "Verified Employee"
+    },
+    {
+      "icon": "user-check",
+      "text": "Customer Relations"
+    },
+    {
+      "icon": "briefcase",
+      "text": "Client Success"
+    }
+  ],
+  "quickActions": [
+    {
+      "id": "call",
+      "type": "tel",
+      "icon": "phone",
+      "title": "+91 95678 13815",
+      "subtitle": "Direct Call / SMS",
+      "url": "tel:+919567813815",
+      "copyValue": "+91 95678 13815"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "icon": "mail",
+      "title": "vishnu03c@gmail.com",
+      "subtitle": "Direct Email",
+      "url": "mailto:vishnu03c@gmail.com",
+      "copyValue": "vishnu03c@gmail.com"
+    },
+    {
+      "id": "whatsapp",
+      "type": "external",
+      "icon": "whatsapp",
+      "title": "Chat on WhatsApp",
+      "subtitle": "Instant message & updates",
+      "url": "https://wa.me/919567813815?text=Hello%20Vishnu,%20reaching%20out%20via%20your%20Arraycode%20visiting%20card."
+    },
+    {
+      "id": "booking",
+      "type": "external",
+      "icon": "calendar",
+      "title": "Book a Consultation",
+      "subtitle": "Connect with our team",
+      "url": "https://www.arraycode.in/contact"
+    },
+    {
+      "id": "linkedin",
+      "type": "external",
+      "icon": "linkedin",
+      "title": "Vishnu C",
+      "subtitle": "LinkedIn Profile",
+      "url": "https://www.linkedin.com/in/vishnu-c-1aab09256"
+    },
+    {
+      "id": "location",
+      "type": "external",
+      "icon": "map-pin",
+      "title": "Kozhikode, Kerala",
+      "subtitle": "Location",
+      "url": "https://maps.google.com/?q=Kozhikode,Kerala,India"
+    }
+  ],
+  "socialLinks": [
+    {
+      "platform": "LinkedIn",
+      "icon": "linkedin",
+      "url": "https://www.linkedin.com/in/vishnu-c-1aab09256"
+    },
+    {
+      "platform": "Website",
+      "icon": "globe",
+      "url": "https://www.arraycode.in"
+    },
+    {
+      "platform": "Twitter / X",
+      "icon": "twitter",
+      "url": "https://x.com/Arraycode_in"
+    },
+    {
+      "platform": "Instagram",
+      "icon": "instagram",
+      "url": "https://www.instagram.com/arraycode.in"
+    }
+  ],
+  "services": [
+    "Client Success Management",
+    "Account Relations",
+    "Project Discovery & Scoping",
+    "Customer Support",
+    "Growth Partnerships"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "arraycode-visiting-cards",
+  "version": "1.0.0",
+  "description": "Multi-tenant digital visiting card platform for Arraycode with Map in-memory routing and persistence",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "visiting-card",
+    "multi-tenant",
+    "arraycode"
+  ],
+  "author": "Arraycode",
+  "license": "ISC"
+}
+

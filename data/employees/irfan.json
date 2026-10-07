@@ -1,0 +1,136 @@
+{
+  "employee": {
+    "name": "Irfan",
+    "honorific": "",
+    "role": "Product Developer",
+    "department": "Product Engineering",
+    "company": "Arraycode",
+    "pronouns": "He/Him",
+    "avatar": "data/img/dp.jpg",
+    "tagline": "Architecting modern web platforms, mobile apps & PWAs.",
+    "bio": "Product Developer at Arraycode crafting modern responsive web applications, interactive UI components, and performant digital experiences.",
+    "email": "irfan@arraycode.in",
+    "phone": "+91 98765 43214",
+    "phoneRaw": "+919876543210",
+    "whatsapp": "+919876543210",
+    "location": "Bengaluru, India",
+    "website": "https://www.arraycode.in",
+    "calendarUrl": "https://www.arraycode.in/contact",
+    "github": "https://github.com/arraycode",
+    "linkedin": "https://www.linkedin.com/company/arraycode.in/",
+    "twitter": "https://x.com/Arraycode_in",
+    "instagram": "https://www.instagram.com/arraycode.in"
+  },
+  "company": {
+    "name": "Arraycode",
+    "tagline": "Product engineering, web, mobile and PWA",
+    "website": "https://www.arraycode.in",
+    "email": "hello@arraycode.in",
+    "logoMark": "data/img/arraycode-mark.png",
+    "logoWordmark": "data/img/arraycode-wordmark.png",
+    "logoWordmarkLight": "data/img/arraycode-wordmark-light.png",
+    "icon": "data/img/arraycode-icon.png"
+  },
+  "theme": {
+    "style": "split",
+    "mode": "light",
+    "primaryColor": "#0080ff",
+    "secondaryColor": "#4f46e5",
+    "accentColor": "#00d2ff"
+  },
+  "badges": [
+    {
+      "icon": "shield-check",
+      "text": "Verified Employee"
+    },
+    {
+      "icon": "terminal",
+      "text": "Full-Stack & PWA"
+    },
+    {
+      "icon": "zap",
+      "text": "Senior Engineering"
+    }
+  ],
+  "quickActions": [
+    {
+      "id": "call",
+      "type": "tel",
+      "icon": "phone",
+      "title": "+91 98765 43210",
+      "subtitle": "Direct Call / SMS",
+      "url": "tel:+919876543210",
+      "copyValue": "+91 98765 43210"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "icon": "mail",
+      "title": "athul@arraycode.in",
+      "subtitle": "Work Email",
+      "url": "mailto:athul@arraycode.in",
+      "copyValue": "athul@arraycode.in"
+    },
+    {
+      "id": "whatsapp",
+      "type": "external",
+      "icon": "whatsapp",
+      "title": "Chat on WhatsApp",
+      "subtitle": "Instant message & updates",
+      "url": "https://wa.me/919876543210?text=Hello%20Athul,%20reaching%20out%20via%20your%20Arraycode%20visiting%20card."
+    },
+    {
+      "id": "booking",
+      "type": "external",
+      "icon": "calendar",
+      "title": "Book a Scope Call",
+      "subtitle": "Scope your project with us",
+      "url": "https://www.arraycode.in/contact"
+    },
+    {
+      "id": "website",
+      "type": "external",
+      "icon": "globe",
+      "title": "www.arraycode.in",
+      "subtitle": "Our Products & Platforms",
+      "url": "https://www.arraycode.in"
+    },
+    {
+      "id": "location",
+      "type": "external",
+      "icon": "map-pin",
+      "title": "Bengaluru, India",
+      "subtitle": "Arraycode Tech Hub",
+      "url": "https://maps.google.com/?q=Bengaluru,Karnataka,India"
+    }
+  ],
+  "socialLinks": [
+    {
+      "platform": "LinkedIn",
+      "icon": "linkedin",
+      "url": "https://www.linkedin.com/company/arraycode.in/"
+    },
+    {
+      "platform": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/arraycode"
+    },
+    {
+      "platform": "Twitter / X",
+      "icon": "twitter",
+      "url": "https://x.com/Arraycode_in"
+    },
+    {
+      "platform": "Instagram",
+      "icon": "instagram",
+      "url": "https://www.instagram.com/arraycode.in"
+    }
+  ],
+  "services": [
+    "Product Engineering",
+    "Web Platforms",
+    "Mobile Apps",
+    "PWA Solutions",
+    "Support & Scale"
+  ]
+}
