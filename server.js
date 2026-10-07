@@ -96,6 +96,7 @@ function initTenantStore() {
         name: "Jison Joseph Sebastian",
         role: "AI/ML Engineer & Full Stack Developer",
         department: "AI Systems & Engineering",
+        avatar: "data/img/jison.jpg",
         email: "jison@arraycode.in",
         phone: "+91 98765 43211",
         phoneRaw: "+919876543211",

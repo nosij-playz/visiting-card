@@ -142,29 +142,45 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchCardData();
 });
 
+const KNOWN_TENANTS = ['athul', 'jison', 'namit', 'vinay', 'nived', 'irfan', 'vishnu', 'joseph'];
+
 function getActiveTenant() {
   const params = new URLSearchParams(window.location.search);
   const qTenant = params.get('u') || params.get('user') || params.get('name') || params.get('id');
-  if (qTenant) return qTenant.toLowerCase().trim();
+  if (qTenant) {
+    const clean = qTenant.toLowerCase().trim();
+    if (KNOWN_TENANTS.includes(clean)) return clean;
+    return clean;
+  }
 
   // Handle hash route (e.g. #namit, #/jison) - 100% static compatible
   if (window.location.hash) {
     const hashClean = window.location.hash.replace(/^#\/?/, '').split('?')[0].toLowerCase().trim();
-    if (hashClean && !hashClean.includes('.')) return hashClean;
+    if (hashClean && KNOWN_TENANTS.includes(hashClean)) return hashClean;
   }
 
-  const hostname = window.location.hostname.toLowerCase();
-  const hostParts = hostname.split('.');
-  if (hostParts.length > 1 && !['localhost', '127', 'www', 'arraycode', 'visiting-cards', 'visiting-card', 'onrender'].includes(hostParts[0])) {
-    return hostParts[0];
-  }
-
+  // Handle path route: /namit, /jison, /vishnu
   const pathParts = window.location.pathname.replace(/^\/+|\/+$/g, '').split('/');
-  if (pathParts[0] && !pathParts[0].includes('.') && pathParts[0] !== 'index.html') {
-    return pathParts[0].toLowerCase().trim();
+  const firstPath = pathParts[0]?.toLowerCase().trim();
+  if (firstPath && KNOWN_TENANTS.includes(firstPath)) {
+    return firstPath;
   }
 
-  return '';
+  // Handle custom domain subdomains (e.g. jison.arraycode.in or jison.localhost)
+  const hostname = window.location.hostname.toLowerCase();
+  // Do NOT treat Render / Vercel / GitHub hosting subdomains (*.onrender.com) as tenant
+  if (!hostname.endsWith('.onrender.com') && !hostname.endsWith('.vercel.app') && !hostname.endsWith('.github.io')) {
+    const hostParts = hostname.split('.');
+    if (hostParts.length > 1) {
+      const sub = hostParts[0].trim();
+      if (KNOWN_TENANTS.includes(sub)) {
+        return sub;
+      }
+    }
+  }
+
+  // Default to athul
+  return 'athul';
 }
 
 async function fetchCardData() {
@@ -209,7 +225,13 @@ async function fetchCardData() {
 }
 
 function renderVisitingCard(data) {
-  const { employee, company, badges, quickActions, socialLinks, services } = data;
+  if (!data) return;
+  const employee = data.employee || {};
+  const company = data.company || {};
+  const badges = data.badges || [];
+  const quickActions = data.quickActions || [];
+  const socialLinks = data.socialLinks || [];
+  const services = data.services || [];
 
   // Dynamically update page title & Open Graph tags for this employee
   if (employee.name) {
@@ -222,10 +244,10 @@ function renderVisitingCard(data) {
 
   // 1. Employee Name, Title, Org
   const nameEl = document.getElementById('emp-name');
-  if (nameEl) nameEl.textContent = employee.name;
+  if (nameEl && employee.name) nameEl.textContent = employee.name;
 
   const roleEl = document.getElementById('emp-role');
-  if (roleEl) roleEl.textContent = employee.role;
+  if (roleEl && employee.role) roleEl.textContent = employee.role;
 
   const orgEl = document.getElementById('emp-org');
   if (orgEl) orgEl.textContent = `${employee.company || 'Arraycode'} · ${employee.department || 'Engineering'}`;
@@ -234,7 +256,7 @@ function renderVisitingCard(data) {
   const dpEl = document.getElementById('emp-dp');
   if (dpEl) {
     dpEl.src = employee.avatar || 'data/img/dp.jpg';
-    dpEl.alt = employee.name;
+    dpEl.alt = employee.name || 'Profile Picture';
     dpEl.onerror = () => { dpEl.src = 'data/img/dp.jpg'; };
   }
 
