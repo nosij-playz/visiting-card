@@ -144,18 +144,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function getActiveTenant() {
   const params = new URLSearchParams(window.location.search);
-  const qTenant = params.get('u') || params.get('user');
-  if (qTenant) return qTenant.toLowerCase();
+  const qTenant = params.get('u') || params.get('user') || params.get('name') || params.get('id');
+  if (qTenant) return qTenant.toLowerCase().trim();
+
+  // Handle hash route (e.g. #namit, #/jison) - 100% static compatible
+  if (window.location.hash) {
+    const hashClean = window.location.hash.replace(/^#\/?/, '').split('?')[0].toLowerCase().trim();
+    if (hashClean && !hashClean.includes('.')) return hashClean;
+  }
 
   const hostname = window.location.hostname.toLowerCase();
   const hostParts = hostname.split('.');
-  if (hostParts.length > 1 && !['localhost', '127', 'www', 'arraycode', 'visiting-cards', 'onrender'].includes(hostParts[0])) {
+  if (hostParts.length > 1 && !['localhost', '127', 'www', 'arraycode', 'visiting-cards', 'visiting-card', 'onrender'].includes(hostParts[0])) {
     return hostParts[0];
   }
 
   const pathParts = window.location.pathname.replace(/^\/+|\/+$/g, '').split('/');
-  if (pathParts[0] && !pathParts[0].includes('.')) {
-    return pathParts[0].toLowerCase();
+  if (pathParts[0] && !pathParts[0].includes('.') && pathParts[0] !== 'index.html') {
+    return pathParts[0].toLowerCase().trim();
   }
 
   return '';
@@ -163,19 +169,43 @@ function getActiveTenant() {
 
 async function fetchCardData() {
   const tenant = getActiveTenant();
-  const endpoint = tenant ? `/api/employee?u=${encodeURIComponent(tenant)}` : 'data/info.json';
-
-  try {
-    const res = await fetch(endpoint, { cache: 'no-cache' });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    activeData = data;
-    renderVisitingCard(data);
-  } catch (e) {
-    console.warn(`Fetch ${endpoint} fallback active:`, e);
-    activeData = FALLBACK_CONFIG;
-    renderVisitingCard(FALLBACK_CONFIG);
+  
+  // List of candidate paths to try (works seamlessly on static hosting, SPA rewrites, and Node backend)
+  const candidateEndpoints = [];
+  if (tenant) {
+    // 1. Direct static employee JSON file
+    candidateEndpoints.push(`data/employees/${encodeURIComponent(tenant)}.json`);
+    candidateEndpoints.push(`/data/employees/${encodeURIComponent(tenant)}.json`);
+    // 2. Dynamic Node.js server API
+    candidateEndpoints.push(`/api/employee?u=${encodeURIComponent(tenant)}`);
   }
+  // 3. Default base config
+  candidateEndpoints.push('data/info.json');
+  candidateEndpoints.push('/data/info.json');
+
+  for (const endpoint of candidateEndpoints) {
+    try {
+      const res = await fetch(endpoint, { cache: 'no-cache' });
+      if (res.ok) {
+        const text = await res.text();
+        // Ensure the response is valid JSON and not an HTML 404 fallback page
+        if (text.trim().startsWith('{')) {
+          const data = JSON.parse(text);
+          if (data && data.employee) {
+            activeData = data;
+            renderVisitingCard(data);
+            return;
+          }
+        }
+      }
+    } catch (e) {
+      // Continue to next candidate endpoint
+    }
+  }
+
+  console.warn('All candidate endpoints failed, falling back to static config');
+  activeData = FALLBACK_CONFIG;
+  renderVisitingCard(FALLBACK_CONFIG);
 }
 
 function renderVisitingCard(data) {
